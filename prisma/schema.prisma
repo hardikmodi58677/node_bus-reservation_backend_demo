@@ -16,6 +16,7 @@ model Ticket {
   seatId Int?   @unique
 
   @@map("tickets")
+  @@index([status], name: "status_index")
 }
 
 model User {
