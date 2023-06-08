@@ -4,7 +4,7 @@ const TICKET_STATUS = ["open", "close"] as const
 
 export const getTicketsSchema = object({
 	query: object({
-		status: z.enum(TICKET_STATUS),
+		status: z.enum(TICKET_STATUS).optional(),
 	}),
 })
 

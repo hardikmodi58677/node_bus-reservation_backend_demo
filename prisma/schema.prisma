@@ -40,5 +40,5 @@ model Seat {
 
 enum ticket_status_enum {
   open
-  closed
+  close
 }
