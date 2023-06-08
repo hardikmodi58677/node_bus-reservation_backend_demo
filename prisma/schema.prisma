@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id     Int    @id @default(autoincrement())
+  status String @default("open")
+  user   User?  @relation(fields: [userId], references: [id])
+  seat   Seat?  @relation(fields: [seatId], references: [id])
+  userId Int?
+  seatId Int?   @unique
+
+  @@map("tickets")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+  isAdmin   Boolean? @default(false)
+  tickets   Ticket[]
+
+  @@map("users")
+}
+
+model Seat {
+  id         Int     @id @default(autoincrement())
+  seatNumber Int
+  Ticket     Ticket?
+
+  @@map("seats")
+}
+
+enum ticket_status_enum {
+  open
+  closed
+}
