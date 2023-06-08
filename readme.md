@@ -6,7 +6,9 @@ Steps to run the project:
 
 2. Install dependencies, run: `pnpm install`
 
-3. Optional Step, seed the data, run: `pnpm run seed`
+3. Run the migrations, run: `pnpm run db_migrate`
+
+3. Optional Step, seed the data, run: `pnpm run db_seed`
 
 4. Run the project, run: `pnpm start`
 

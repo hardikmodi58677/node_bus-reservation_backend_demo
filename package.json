@@ -6,8 +6,9 @@
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
     "build": "tsc -p .",
-    "seed": "ts-node prisma/seed.ts",
-    "reset_db": "npx prisma db push --force-reset"
+    "db_migrate": "npx prisma migrate dev",
+    "db_seed": "ts-node prisma/seed.ts",
+    "db_reset": "npx prisma db push --force-reset"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
